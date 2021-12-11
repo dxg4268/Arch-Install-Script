@@ -62,7 +62,7 @@ echo "--------------------------------------------------------"
 echo
 
 sleep 10s
-Base_Install=(base linux-zen linux-firmware sudo nano vi vim intel-ucode btrfs-progs NetworkManager)
+Base_Install=(base linux-zen linux-firmware sudo nano vi vim intel-ucode btrfs-progs NetworkManager grub grub-btrfs)
 
 echo "[!] This script will install some most important packages so that this computer can be used after FIRST "
 echo "    reboot {base linux-zen linux-firmware sudo nano vi vim Network Manager}"
@@ -78,7 +78,7 @@ echo
 #Install Base System
 echo
 echo
-echo "[+] Installing Packages to the new root, this might take some time according the Internet speed."
+echo "[+] Installing Packages to the new root, this might take some time depending the Internet speed."
 pacstrap /mnt ${Base_Install[*]} > /dev/null 2>&1
 echo
 echo
@@ -86,5 +86,10 @@ echo
 
 #Generate fstab
 genfstab -U -p /mnt >> /mnt/etc/fstab
+
+echo
+echo
+echo "[+] Installing GRUB Bootloader on $disk_arch ..."
+grub-install $disk_arch
 
 
