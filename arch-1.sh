@@ -62,7 +62,7 @@ echo "--------------------------------------------------------"
 echo
 
 sleep 10s
-Base_Install=(base linux-zen linux-firmware sudo nano vi vim intel-ucode btrfs-progs NetworkManager grub grub-btrfs)
+Base_Install=(base linux-zen linux-firmware sudo nano vi vim intel-ucode btrfs-progs networkmanager grub grub-btrfs)
 
 echo "[!] This script will install some most important packages so that this computer can be used after FIRST "
 echo "    reboot {base linux-zen linux-firmware sudo nano vi vim Network Manager}"
@@ -85,11 +85,12 @@ echo
 
 
 #Generate fstab
+echo "[+] Generating FSTAB..."
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 echo
 echo
-echo "[+] Installing GRUB Bootloader on $disk_arch ..."
-grub-install $disk_arch
+echo "[+] Thank You For Using this Installation Script..."
+echo "[+] This script only installs some basic utilies , you may need to run Arch Install Part 2 (arch-2.sh)"
 
 
