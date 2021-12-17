@@ -1,4 +1,11 @@
 #Refresh mirrors
+
+echo 
+echo "Welcome to Arch Linux Installation (made by AdityaSharma from India)..."
+echo "This script will guide you through the Installation process of Arch..."
+
+echo
+echo "[+] Updating MirrorList and Pacman Databases..."
 reflector --verbose -c "India" --sort rate > /etc/pacman.d/mirrorlist
 pacman -Syy > /dev/null 2>&1
 echo
