@@ -39,7 +39,7 @@ echo "[+] Setting up Hosts on this Machine.."
 read -p "[-] Enter Host Name for this Device : " host
 echo $host > /etc/hostname
 echo "127.0.0.1		localhost" >> /etc/hosts
-echo "::1		      localhost" >> /etc/hosts
+echo "::1         localhost" >> /etc/hosts
 echo "127.0.1.1		${host}.localdomain	    ${host}" >> /etc/hosts
 
 echo
