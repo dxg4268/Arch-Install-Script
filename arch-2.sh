@@ -1,10 +1,10 @@
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 echo "[+] Hello ! Welcome to Arch Linux Initial Configuration Wizard aka Part 2 of the Setup..."
 echo "[+] Lets quickly setup Arch for You..."
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 
@@ -18,7 +18,7 @@ timedatectl set-ntp true
 hwclock --systohc
 
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 
@@ -43,7 +43,7 @@ echo "::1         localhost" >> /etc/hosts
 echo "127.0.1.1		${host}.localdomain	    ${host}" >> /etc/hosts
 
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 
@@ -51,30 +51,28 @@ echo
 echo "[+] Now we will Install GRUB bootloader to boot up this device, Very Important..."
 
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 lsblk
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 sleep 2s
 
 read -p "[-] Enter DISK on which GRUB is to be installed (eg. sda, sdb, vda)..." disk_grub
 pacman -S grub grub-btrfs os-prober ntfs-3g --noconfirm > /dev/null 2>&1
-grub-install $disk_grub
+grub-install $disk_grub > /dev/null 2>&1
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg > /dev/null 2>&1
 
 #Extra packages
 echo "[+] Some of the packages will be installed (xorg base-devel git unzip ,and some fonts - roboto etc.)"
 echo "[+] With AUR helper to enable AUR support..."
-#pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay-bin.git > /dev/null 2>&1
-cd yay-bin
-makepkg -si --needed --noconfirm  > /dev/null 2>&1
-cd ..
-rm -rf yay-bin
+#pacman -S --needed git base-dev
+pacman -S wget --noconfirm 
+wget https://github.com/Jguer/yay/releases/download/v11.0.2/yay_11.0.2_x86_64.tar.gz
+pacman -U yay_11.0.2_x86_64.tar.gz
 
 
 #Colors
@@ -83,13 +81,13 @@ sed -i 's/#Color/Color/g' /etc/pacman.conf
 
 echo
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo ttf-roboto terminator --noconfirm > /dev/null 2>&1
 echo
 echo "[*] Packages Installed Successfully..."
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 echo
 
@@ -108,7 +106,7 @@ cd ..
 rm -rf Vimix-cursors
 
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 echo "[+] Lets add a new Non-Root Account..."
@@ -129,7 +127,7 @@ echo
 passwd $name
 
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 echo "[+] New User created !"
@@ -148,7 +146,7 @@ cp bashrc /home/$name/.bashrc
 fi
 
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 #Chaotic AUR and imp AUR Packages
@@ -161,7 +159,7 @@ echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 #echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
 #pacman -Sy pamac-aur archlinux-appstream-data libpamac-aur yay --noconfirm
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 echo "[+] Updating Repos and System..."
 pacman -Syu
@@ -173,7 +171,7 @@ echo
 systemctl enable NetworkManager
 #systemctl enable sddm
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 echo "[+] Thank You for using this script, You may now remove Installation Drive and REBOOT :)"
