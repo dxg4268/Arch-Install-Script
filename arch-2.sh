@@ -71,8 +71,8 @@ echo "[+] Some of the packages will be installed (xorg base-devel git unzip ,and
 echo "[+] With AUR helper to enable AUR support..."
 #pacman -S --needed git base-dev
 pacman -S wget --noconfirm 
-wget https://github.com/Jguer/yay/releases/download/v11.0.2/yay_11.0.2_x86_64.tar.gz
-pacman -U yay_11.0.2_x86_64.tar.gz
+#wget https://github.com/Jguer/yay/releases/download/v11.0.2/yay_11.0.2_x86_64.tar.gz
+#pacman -U yay_11.0.2_x86_64.tar.gz
 
 
 #Colors
@@ -83,7 +83,7 @@ echo
 echo
 echo "---------------------------------------------------------------"
 echo
-pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo ttf-roboto terminator --noconfirm > /dev/null 2>&1
+pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo ttf-roboto terminator --noconfirm
 echo
 echo "[*] Packages Installed Successfully..."
 echo
@@ -96,7 +96,7 @@ echo "[+] This script ships with some themeing OPTION available as default as so
 echo "[+] You need to apply them on your own..."
 echo "    (Papirus Icons, Vimix Cursors)"
 
-pacman -S papirus-icon-theme octopi
+pacman -S papirus-icon-theme 
 echo "[+] Cloning Vimix Cursor REPO... "
 git clone https://github.com/vinceliuice/Vimix-cursors.git > /dev/null 2>&1
 cd Vimix-cursors
@@ -132,14 +132,14 @@ echo
 
 echo "[+] New User created !"
 echo 
-yay -S pfetch --noconfirm > /dev/null 2>&1
+#yay -S pfetch --noconfirm > /dev/null 2>&1
 
 git clone https://github.com/dxg4268/Arch-Install-Script > /dev/null 2>&1
 cd Arch-Install-Script
 
 if [[ ${shell} = "/bin/zsh" ]]
 then
-yay -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile find-the-command fzf --needed --noconfirm > /dev/null 2>&1
+pacman -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf --needed --noconfirm > /dev/null 2>&1
 cp zshrc /home/$name/.zshrc
 else
 cp bashrc /home/$name/.bashrc
