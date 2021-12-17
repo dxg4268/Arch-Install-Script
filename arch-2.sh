@@ -81,11 +81,18 @@ rm -rf yay-bin
 echo 'include "/usr/share/nano/*.nanorc"' >> /etc/nanorc
 sed -i 's/#Color/Color/g' /etc/pacman.conf
 
-
-pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf fish zsh ttf-roboto terminator --noconfirm
+echo
 echo
 echo"---------------------------------------------------------------"
 echo
+pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo ttf-roboto terminator --noconfirm > /dev/null 2>&1
+echo
+echo "[*] Packages Installed Successfully..."
+echo
+echo"---------------------------------------------------------------"
+echo
+echo
+
 
 echo "[+] This script ships with some themeing OPTION available as default as soon as you install a Desktop Environment..."
 echo "[+] You need to apply them on your own..."
@@ -140,7 +147,9 @@ else
 cp bashrc /home/$name/.bashrc
 fi
 
-
+echo
+echo"---------------------------------------------------------------"
+echo
 
 #Chaotic AUR and imp AUR Packages
 #pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
@@ -151,9 +160,20 @@ echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 #echo "[chaotic-aur]" >> /etc/pacman.conf
 #echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
 #pacman -Sy pamac-aur archlinux-appstream-data libpamac-aur yay --noconfirm
+echo
+echo"---------------------------------------------------------------"
+echo
+echo "[+] Updating Repos and System..."
+pacman -Syu
 
 #enable service
+echo "[+] Starting Services"
+echo
 #systemctl enable ufw
 systemctl enable NetworkManager
 #systemctl enable sddm
+echo
+echo"---------------------------------------------------------------"
+echo
 
+echo "[+] Thank You for using this script, You may now remove Installation Drive and REBOOT :)"
