@@ -20,7 +20,7 @@ read -p "Enter Disk on which Arch is to be installed (eg. sda, vda, sdb): " disk
 
 echo "[!] Warning ! please refer to ArchWiki and do not format your essential data..."
 echo
-sleep 3s
+sleep 1s
 
 echo "[+] Launching CFDisk Utility for disk management"
 sleep 2s
@@ -68,8 +68,8 @@ echo
 echo "--------------------------------------------------------"
 echo
 
-sleep 10s
-Base_Install=(base linux-zen linux-firmware sudo nano vi vim intel-ucode btrfs-progs networkmanager grub grub-btrfs)
+sleep 2s
+Base_Install=(base linux-lts linux-firmware sudo nano vi vim intel-ucode btrfs-progs networkmanager grub grub-btrfs)
 
 echo "[!] This script will install some most important packages so that this computer can be used after FIRST "
 echo "    reboot {base linux-zen linux-firmware sudo nano vi vim Network Manager}"
@@ -86,7 +86,7 @@ echo
 echo
 echo
 echo "[+] Installing Packages to the new root, this might take some time depending the Internet speed."
-pacstrap /mnt ${Base_Install[*]} > /dev/null 2>&1
+pacstrap /mnt base linux-lts linux-firmware sudo nano vi vim intel-ucode btrfs-progs networkmanager grub grub-btrfs
 echo
 echo
 
