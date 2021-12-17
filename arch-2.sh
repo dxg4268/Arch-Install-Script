@@ -30,17 +30,18 @@ locale-gen
 echo "LANG=en_IN.UTF-8" > /etc/locale.conf
 
 echo
-echo"---------------------------------------------------------------"
+echo "---------------------------------------------------------------"
 echo
 
 
 #Hosts
 echo "[+] Setting up Hosts on this Machine.."
-read -p "[-] Enter Host Name for this Device : " host
-echo $host > /etc/hostname
+#read -p "[-] Enter Host Name for this Device : " host
+echo arch > /etc/hostname
 echo "127.0.0.1		localhost" >> /etc/hosts
-echo "::1         localhost" >> /etc/hosts
-echo "127.0.1.1		${host}.localdomain	    ${host}" >> /etc/hosts
+echo "::1		      localhost" >> /etc/hosts
+echo "127.0.1.1		arch.localdomain	arch" >> /etc/hosts
+
 
 echo
 echo "---------------------------------------------------------------"
@@ -61,15 +62,18 @@ echo
 sleep 2s
 
 read -p "[-] Enter DISK on which GRUB is to be installed (eg. sda, sdb, vda)..." disk_grub
-pacman -S grub grub-btrfs os-prober ntfs-3g --noconfirm > /dev/null 2>&1
+pacman -S os-prober ntfs-3g --noconfirm > /dev/null 2>&1
 grub-install $disk_grub > /dev/null 2>&1
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg > /dev/null 2>&1
 
 #Extra packages
+echo
+echo
 echo "[+] Some of the packages will be installed (xorg base-devel git unzip ,and some fonts - roboto etc.)"
-echo "[+] With AUR helper to enable AUR support..."
+#echo "[+] With AUR helper to enable AUR support..."
 #pacman -S --needed git base-dev
+echo
 pacman -S wget --noconfirm 
 #wget https://github.com/Jguer/yay/releases/download/v11.0.2/yay_11.0.2_x86_64.tar.gz
 #pacman -U yay_11.0.2_x86_64.tar.gz
@@ -83,7 +87,7 @@ echo
 echo
 echo "---------------------------------------------------------------"
 echo
-pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo ttf-roboto terminator --noconfirm
+pacman -S sddm ufw xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo ttf-roboto terminator --noconfirm --needed
 echo
 echo "[*] Packages Installed Successfully..."
 echo
@@ -137,13 +141,11 @@ echo
 git clone https://github.com/dxg4268/Arch-Install-Script > /dev/null 2>&1
 cd Arch-Install-Script
 
-if [[ ${shell} = "/bin/zsh" ]]
-then
+
 pacman -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf --needed --noconfirm > /dev/null 2>&1
-cp zshrc /home/$name/.zshrc
-else
-cp bashrc /home/$name/.bashrc
-fi
+cp zshrc /home/aditya/.zshrc
+cp bashrc /home/aditya/.bashrc
+
 
 echo
 echo "---------------------------------------------------------------"
@@ -167,9 +169,9 @@ pacman -Syu
 #enable service
 echo "[+] Starting Services"
 echo
-#systemctl enable ufw
+systemctl enable ufw
 systemctl enable NetworkManager
-#systemctl enable sddm
+systemctl enable sddm
 echo
 echo "---------------------------------------------------------------"
 echo
