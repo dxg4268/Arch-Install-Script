@@ -16,6 +16,7 @@ pacman -S ntp --noconfirm > /dev/null 2>&1
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 timedatectl set-ntp true
 hwclock --systohc
+
 echo
 echo"---------------------------------------------------------------"
 echo
@@ -74,11 +75,14 @@ cd yay-bin
 makepkg -si --needed --noconfirm  > /dev/null 2>&1
 cd ..
 rm -rf yay-bin
+
+
+#Colors
 echo 'include "/usr/share/nano/*.nanorc"' >> /etc/nanorc
 sed -i 's/#Color/Color/g' /etc/pacman.conf
 
 
-pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf ttf-roboto terminator --noconfirm
+pacman -S xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf fish zsh ttf-roboto terminator --noconfirm
 echo
 echo"---------------------------------------------------------------"
 echo
@@ -95,7 +99,49 @@ chmod +x install.sh
 ./install.sh
 cd ..
 rm -rf Vimix-cursors
- 
+
+echo
+echo"---------------------------------------------------------------"
+echo
+
+echo "[+] Lets add a new Non-Root Account..."
+echo
+read -p "[-] Enter username for the new user : " name
+echo 
+#echo "-------------"
+echo
+echo "[*] Different Shells available on this device..."
+echo
+chsh -l
+echo
+read -p "[-] Select shell for the new user (support for - /bin/zsh): " shell
+
+useradd -m -G wheel -s $shell $name
+echo "[+] Now enter password for the new user..."
+echo
+passwd $name
+
+echo
+echo"---------------------------------------------------------------"
+echo
+
+echo "[+] New User created !"
+echo 
+yay -S pfetch --noconfirm > /dev/null 2>&1
+
+git clone https://github.com/dxg4268/Arch-Install-Script
+cd Arch-Install-Script
+
+if [[ ${shell} = "/bin/zsh" ]]
+then
+yay -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile find-the-command fzf --needed --noconfirm
+cp zshrc /home/$name/.zshrc
+else
+cp bashrc /home/$name/.bashrc
+fi
+
+
+
 #Chaotic AUR and imp AUR Packages
 #pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 #pacman-key --lsign-key 3056513887B78AEB
