@@ -129,12 +129,12 @@ echo "[+] New User created !"
 echo 
 yay -S pfetch --noconfirm > /dev/null 2>&1
 
-git clone https://github.com/dxg4268/Arch-Install-Script
+git clone https://github.com/dxg4268/Arch-Install-Script > /dev/null 2>&1
 cd Arch-Install-Script
 
 if [[ ${shell} = "/bin/zsh" ]]
 then
-yay -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile find-the-command fzf --needed --noconfirm
+yay -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile find-the-command fzf --needed --noconfirm > /dev/null 2>&1
 cp zshrc /home/$name/.zshrc
 else
 cp bashrc /home/$name/.bashrc
