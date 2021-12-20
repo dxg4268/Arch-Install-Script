@@ -63,9 +63,15 @@ sleep 2s
 
 read -p "[-] Enter DISK on which GRUB is to be installed (eg. sda, sdb, vda)..." disk_grub
 pacman -S os-prober ntfs-3g --noconfirm > /dev/null 2>&1
-grub-install $disk_grub > /dev/null 2>&1
+grub-install $disk_grub
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg > /dev/null 2>&1
+echo
+echo "---------------------------------------------------------------"
+echo
+grub-mkconfig -o /boot/grub/grub.cfg
+echo
+echo "---------------------------------------------------------------"
+echo
 
 #Extra packages
 echo
