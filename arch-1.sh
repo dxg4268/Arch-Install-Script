@@ -45,8 +45,8 @@ echo " [+] 3 Subvolumes (@, @home, @) on /dev/$root_disk will be created."
 echo " [+] /dev/$swap_disk would be used as SWAP."
 #Disks
 mkfs.btrfs /dev/$root_disk -f > /dev/null 2>&1
-mkswap /dev/$swap_disk > /dev/null 2>&1
-swapon /dev/$swap_disk > /dev/null 2>&1
+#mkswap /dev/$swap_disk > /dev/null 2>&1
+#swapon /dev/$swap_disk > /dev/null 2>&1
 mount /dev/$root_disk /mnt
 btrfs su cr /mnt/@
 btrfs su cr /mnt/@home
