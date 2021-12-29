@@ -86,14 +86,14 @@ echo
 echo
 echo
 echo "[+] Installing Packages to the new root, this might take some time depending the Internet speed."
-pacstrap /mnt base linux-lts linux-firmware sudo nano vi vim intel-ucode btrfs-progs networkmanager grub grub-btrfs
+pacstrap /mnt base linux-lts linux-firmware sudo nano vi vim btrfs-progs networkmanager grub grub-btrfs
 echo
 echo
 
 
 #Generate fstab
 echo "[+] Generating FSTAB..."
-genfstab -U -p /mnt >> /mnt/etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 echo
 echo
