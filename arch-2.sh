@@ -37,10 +37,10 @@ echo
 #Hosts
 echo "[+] Setting up Hosts on this Machine.."
 #read -p "[-] Enter Host Name for this Device : " host
-echo arch > /etc/hostname
+echo "dxg4268-eme732z" > /etc/hostname
 echo "127.0.0.1		localhost" >> /etc/hosts
 echo "::1		      localhost" >> /etc/hosts
-echo "127.0.1.1		arch.localdomain	arch" >> /etc/hosts
+echo "127.0.1.1		dxg4268-eme732z.localdomain	dxg4268-eme732z" >> /etc/hosts
 
 
 echo
@@ -93,7 +93,7 @@ echo
 echo
 echo "---------------------------------------------------------------"
 echo
-pacman -S sddm ufw xorg base-devel git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo ttf-roboto terminator --noconfirm --needed
+pacman -S xorg xorg-xinit base-devel openbox bspwm pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo sddm ufw ttf-roboto ttf-jetbrains-mono terminator --noconfirm --needed
 echo
 echo "[*] Packages Installed Successfully..."
 echo
@@ -144,13 +144,13 @@ echo "[+] New User created !"
 echo 
 #yay -S pfetch --noconfirm > /dev/null 2>&1
 
-git clone https://github.com/dxg4268/Arch-Install-Script > /dev/null 2>&1
-cd Arch-Install-Script
+#git clone https://github.com/dxg4268/Arch-Install-Script > /dev/null 2>&1
+#cd Arch-Install-Script
 
 
 pacman -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf --needed --noconfirm > /dev/null 2>&1
-cp zshrc /home/aditya/.zshrc
-cp bashrc /home/aditya/.bashrc
+#cp zshrc /home/aditya/.zshrc
+#cp bashrc /home/aditya/.bashrc
 
 
 echo
@@ -158,15 +158,15 @@ echo "---------------------------------------------------------------"
 echo
 
 #Chaotic AUR and imp AUR Packages
-pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
-pacman-key --lsign-key FBA220DFC880C036
+#pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+#pacman-key --lsign-key FBA220DFC880C036
 #pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-'{keyring,mirrorlist}'.pkg.tar.zst'
-pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst
+#pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst
 echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-echo "[chaotic-aur]" >> /etc/pacman.conf
-echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
-pacman -Sy archlinux-appstream-data yay --noconfirm
+#echo "[chaotic-aur]" >> /etc/pacman.conf
+#echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+#pacman -Sy archlinux-appstream-data yay --noconfirm
 echo
 echo "---------------------------------------------------------------"
 echo
