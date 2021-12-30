@@ -19,11 +19,8 @@ lsblk
 read -p "Enter Disk on which Arch is to be installed (eg. sda, vda, sdb): " disk_arch
 
 echo "[!] Warning ! please refer to ArchWiki and do not format your essential data..."
-echo
-sleep 1s
 
 echo "[+] Launching CFDisk Utility for disk management"
-sleep 2s
 cfdisk /dev/$disk_arch
 
  
@@ -92,11 +89,11 @@ echo
 
 
 #Generate fstab
-echo "[+] Generating FSTAB..."
-genfstab -U /mnt >> /mnt/etc/fstab
+#echo "[+] Generating FSTAB..."
+#genfstab -U /mnt >> /mnt/etc/fstab
 
 echo
-echo
+echo "[----] genfstab -U /mnt >> /mnt/etc/fstab ..."
 echo "[+] Thank You For Using this Installation Script..."
 echo "[+] This script only installs some basic utilies , you may need to run Arch Install Part 2 (arch-2.sh)"
 
