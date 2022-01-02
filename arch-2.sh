@@ -93,7 +93,7 @@ echo
 echo
 echo "---------------------------------------------------------------"
 echo
-pacman -S xorg xorg-xinit base-devel openbox bspwm pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo sddm ufw ttf-roboto ttf-jetbrains-mono terminator --noconfirm --needed
+pacman -S xorg xorg-xinit xfce4 base-devel openbox bspwm sxhkd rofi dunst nitrogen pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo sddm ufw ttf-roboto ttf-jetbrains-mono terminator --noconfirm --needed
 echo
 echo "[*] Packages Installed Successfully..."
 echo
