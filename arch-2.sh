@@ -93,7 +93,7 @@ echo
 echo
 echo "---------------------------------------------------------------"
 echo
-pacman -S xorg xorg-xinit xfce4 base-devel openbox bspwm sxhkd rofi dunst nitrogen pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo sddm ufw ttf-roboto ttf-jetbrains-mono terminator --noconfirm --needed
+pacman -S xorg xorg-xinit xfce4 xfce4-goodies papirus-icon-theme base-devel openbox bspwm sxhkd rofi dunst nitrogen zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo sddm ufw ttf-roboto ttf-jetbrains-mono terminator --noconfirm --needed
 echo
 echo "[*] Packages Installed Successfully..."
 echo
@@ -106,8 +106,6 @@ echo "[+] This script ships with some themeing OPTION available as default as so
 echo "[+] You need to apply them on your own..."
 echo "    (Papirus Icons, Vimix Cursors)"
 
-pacman -S papirus-icon-theme 
-echo "[+] Cloning Vimix Cursor REPO... "
 git clone https://github.com/vinceliuice/Vimix-cursors.git > /dev/null 2>&1
 cd Vimix-cursors
 chmod +x install.sh
@@ -136,6 +134,10 @@ echo "[+] Now enter password for the new user..."
 echo
 passwd $name
 
+echo "[+] Password for the root..."
+passwd root
+
+
 echo
 echo "---------------------------------------------------------------"
 echo
@@ -145,12 +147,7 @@ echo
 #yay -S pfetch --noconfirm > /dev/null 2>&1
 
 #git clone https://github.com/dxg4268/Arch-Install-Script > /dev/null 2>&1
-#cd Arch-Install-Script
-
-
-pacman -S zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf --needed --noconfirm > /dev/null 2>&1
-#cp zshrc /home/aditya/.zshrc
-#cp bashrc /home/aditya/.bashrc
+#cd Arch-Install#cp bashrc /home/aditya/.bashrc
 
 
 echo
