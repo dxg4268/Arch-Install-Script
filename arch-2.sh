@@ -93,7 +93,7 @@ echo
 echo
 echo "---------------------------------------------------------------"
 echo
-pacman -S xorg xorg-xinit xfce4 xfce4-goodies papirus-icon-theme arc-gtk-theme archlinux-keyring base-devel openbox bspwm sxhkd rofi dunst nitrogen zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh nemo sddm ufw ttf-roboto ttf-jetbrains-mono terminator --noconfirm --needed
+pacman -S xorg xorg-xinit xfce4 xfce4-goodies papirus-icon-theme lightdm lightdm-gtk-greeter arc-gtk-theme archlinux-keyring base-devel zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh ufw ttf-roboto ttf-jetbrains-mono --noconfirm --needed
 echo
 echo "[*] Packages Installed Successfully..."
 echo
@@ -175,7 +175,7 @@ echo "[+] Starting Services"
 echo
 systemctl enable ufw
 systemctl enable NetworkManager
-systemctl enable sddm
+systemctl enable lightdm
 echo
 echo "---------------------------------------------------------------"
 echo
