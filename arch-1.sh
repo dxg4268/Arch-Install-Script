@@ -83,7 +83,7 @@ echo
 echo
 echo
 echo "[+] Installing Packages to the new root, this might take some time depending the Internet speed."
-pacstrap /mnt base linux-lts linux-firmware sudo nano vi vim btrfs-progs networkmanager grub grub-btrfs
+pacstrap /mnt base linux-lts linux-firmware sudo nano vi intel-ucode vim btrfs-progs networkmanager grub grub-btrfs
 echo
 echo
 
