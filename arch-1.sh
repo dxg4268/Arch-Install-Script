@@ -16,12 +16,12 @@ echo
 
 lsblk
 
-read -p "Enter Disk on which Arch is to be installed (eg. sda, vda, sdb): " disk_arch
+#read -p "Enter Disk on which Arch is to be installed (eg. sda, vda, sdb): " disk_arch
 
-echo "[!] Warning ! please refer to ArchWiki and do not format your essential data..."
+#echo "[!] Warning ! please refer to ArchWiki and do not format your essential data..."
 
-echo "[+] Launching CFDisk Utility for disk management"
-cfdisk /dev/$disk_arch
+#echo "[+] Launching CFDisk Utility for disk management"
+#cfdisk /dev/$disk_arch
 
  
 echo "--------------------------------------------------------"
