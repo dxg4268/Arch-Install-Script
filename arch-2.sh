@@ -37,10 +37,10 @@ echo
 #Hosts
 echo "[+] Setting up Hosts on this Machine.."
 #read -p "[-] Enter Host Name for this Device : " host
-echo "dxg4268-eme732z" > /etc/hostname
+echo "legion" > /etc/hostname
 echo "127.0.0.1		localhost" >> /etc/hosts
 echo "::1		      localhost" >> /etc/hosts
-echo "127.0.1.1		dxg4268-eme732z.localdomain	dxg4268-eme732z" >> /etc/hosts
+echo "127.0.1.1		legion.localdomain	legion" >> /etc/hosts
 
 
 echo
@@ -93,7 +93,7 @@ echo
 echo
 echo "---------------------------------------------------------------"
 echo
-pacman -S xorg xorg-xinit xfce4 xfce4-goodies papirus-icon-theme lightdm lightdm-gtk-greeter arc-gtk-theme archlinux-keyring base-devel zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh ufw ttf-roboto ttf-jetbrains-mono --noconfirm --needed
+pacman -S xorg xorg-xinit papirus-icon-theme arc-gtk-theme archlinux-keyring base-devel zsh-syntax-highlighting zsh-autosuggestions starship zsh-history-substring-search pkgfile fzf pipewire pipewire-pulse pipewire-alsa git unzip ttf-liberation ttf-dejavu ttf-indic-otf zsh ufw --noconfirm --needed
 echo
 echo "[*] Packages Installed Successfully..."
 echo
@@ -175,7 +175,6 @@ echo "[+] Starting Services"
 echo
 systemctl enable ufw
 systemctl enable NetworkManager
-systemctl enable lightdm
 echo
 echo "---------------------------------------------------------------"
 echo

@@ -1,7 +1,7 @@
 #Refresh mirrors
 
 echo 
-echo "Welcome to Arch Linux Installation (made by AdityaSharma from India)..."
+echo "Welcome to Arch Linux Installation..."
 echo "This script will guide you through the Installation process of Arch..."
 
 echo
@@ -16,12 +16,12 @@ echo
 
 lsblk
 
-#read -p "Enter Disk on which Arch is to be installed (eg. sda, vda, sdb): " disk_arch
+read -p "Enter Disk on which Arch is to be installed (eg. sda, vda, sdb): " disk_arch
 
-#echo "[!] Warning ! please refer to ArchWiki and do not format your essential data..."
+echo "[!] Warning ! please refer to ArchWiki and do not format your essential data..."
 
-#echo "[+] Launching CFDisk Utility for disk management"
-#cfdisk /dev/$disk_arch
+echo "[+] Launching CFDisk Utility for disk management"
+cfdisk /dev/$disk_arch
 
  
 echo "--------------------------------------------------------"
@@ -66,7 +66,6 @@ echo "--------------------------------------------------------"
 echo
 
 sleep 2s
-Base_Install=(base linux-lts linux-firmware sudo nano vi vim intel-ucode btrfs-progs networkmanager grub grub-btrfs)
 
 echo "[!] This script will install some most important packages so that this computer can be used after FIRST "
 echo "    reboot {base linux-zen linux-firmware sudo nano vi vim Network Manager}"
@@ -83,7 +82,7 @@ echo
 echo
 echo
 echo "[+] Installing Packages to the new root, this might take some time depending the Internet speed."
-pacstrap /mnt base linux-lts linux-firmware sudo nano vi intel-ucode vim btrfs-progs networkmanager grub grub-btrfs
+pacstrap /mnt base linux-tkg-pds linux-firmware sudo nano neovim intel-ucode btrfs-progs networkmanager grub grub-btrfs
 echo
 echo
 
